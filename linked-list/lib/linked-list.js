@@ -80,6 +80,29 @@ LinkedList.prototype.insertAfter = function(value, newVal){
   current.next = storedNode;
 };
 
+LinkedList.prototype.fromEnd = function(k) {
+  let current = this.head;
+  let count = 1;
+  if(typeof(k) == 'string'){
+    console.log("this is being called");
+    return null;
+  }
+  while (current.next !== null) {
+    current = current.next;
+    console.log(current);
+    count++;
+    console.log('+1', count);
+  }
+  current = this.head;
+  if(k > count) {
+    return null;
+  }
+  for(let i = 0; i < (count-1-k); i++) {
+    current = current.next;
+  }
+  return current
+}
+
 function Node(value) {
   this.value = value;
   this.next = null;
