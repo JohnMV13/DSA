@@ -27,4 +27,28 @@ describe('linkedList', () => {
       expect(linkList.includes(10)).toBe(false);
     });
   });
+  describe('insertBefore', () => {
+    //we now know insert is adding to the list before queried val. 
+    it('inserts value before the queried value', () => {
+      linkList.insert('400'); 
+      linkList.insert('500');
+      linkList.insertBefore('300', '450');
+      expect(linkList.includes('450')).toBe(true);        
+    });
+  });
+  describe('insertAfter', () => {
+    //we now know insert is adding to the list before queried val. 
+    it('inserts value after the queried value', () => {
+      linkList.insert('600'); 
+      linkList.insert('700');
+      linkList.insertBefore('600', '650');
+      expect(linkList.includes('650')).toBe(true); 
+    });
+  });
+  describe('append', () => {
+    it('adds to end of list', () => {
+      linkList.append('400');
+      expect(linkList.includes('400')).toBe(true);
+    });
+  });
 });
