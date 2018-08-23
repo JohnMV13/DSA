@@ -88,4 +88,19 @@ describe('linkedList', () => {
       expect(linkList.fromEnd(6)).toBe(null);
     });
   });
+  describe('merge', () => {
+    it('takes two LL and merges them into a third ', () => {  
+      let list1 = new LinkedList() 
+      list1.insert('1'); 
+      list1.insert('2');
+      list1.insert('3');
+      let list2 = new LinkedList() 
+      list2.insert('A'); 
+      list2.insert('B');
+      list2.insert('C');
+      list2.insert('D');
+      let mergeLists = merge(list1, list2);
+      expect(mergeLists).toBe('1', 'A', '2', 'B', '3','C','D'); 
+    });
+  });
 });

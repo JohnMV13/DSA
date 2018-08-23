@@ -103,6 +103,29 @@ LinkedList.prototype.fromEnd = function(k) {
   return current
 }
 
+LinkedList.prototype.merge = function(listOne, listTwo){
+  function NewList(nodeVal, next) {
+    this.nodeVal = nodeVal;
+    this.next = next;
+  }
+  var ListThree = new NewList(null, null);
+  var newList = ListThree;
+  while (listOne !== null && listTwo !== null) {
+    if (listOne.data <= listTwo.data) { 
+      newList.next = listOne;
+      listOne = listOne.next;
+    } else {
+      newList.next = listTwo;
+      listTwo = listTwo.next;
+    }
+    newList = newList.next;
+  }
+  if (listOne === null) { newList.next = listTwo; }
+  if (listTwo === null) { newList.next = listOne; }
+  return ListThree.next;
+  
+};
+
 function Node(value) {
   this.value = value;
   this.next = null;
