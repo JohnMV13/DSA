@@ -18,4 +18,28 @@ describe('Queue', () => {
     queue.dequeue();
     expect(queue.head.value).toBe(8);
   });
+  it('can add a new value to the beginning of the list', () => {
+    var queue = new Queue();
+    queue.push(9);
+    queue.push(8);
+    queue.push(7);
+    queue.push(6);
+    expect(queue.head.value).toBe(6);
+  });
+  it('can add any input to the front', () => {
+    var queue = new Queue();
+    queue.push(123);
+    expect(queue.head.value).toBe(123);
+    queue.push('hello');
+    expect(queue.head.value).toBe('hello');
+  });
+  it('can remove an item from the end of the list', () => {
+    var queue = new Queue();
+    queue.push(9);
+    queue.push(8);
+    queue.push(7);
+    queue.push(6);
+    queue.pop(9);
+    expect(queue.head.value).toBe(8)
+  });
 });

@@ -24,6 +24,18 @@ Queue.prototype.dequeue = function() {
   return current;
 }
 
+Queue.prototype.push = function(value){
+  var node = new Node(value);
+  node.next = this.head;
+  this.head = node;
+}
+
+Queue.prototype.pop = function() {
+  let current = this.head;
+  this.head = this.head.next;
+  return current;
+}
+
 function Node(value) {
   this.value = value;
   this.next = null;
