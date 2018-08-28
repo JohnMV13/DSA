@@ -5,6 +5,7 @@
   "main": "array_reverse.js",
   "scripts": {
     "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "test": "jest"
   },
   "repository": {
