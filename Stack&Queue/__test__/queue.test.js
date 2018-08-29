@@ -39,7 +39,7 @@ describe('Queue', () => {
     queue.push(8);
     queue.push(7);
     queue.push(6);
-    queue.pop(9);
-    expect(queue.head.value).toBe(8)
+    queue.pop();
+    expect(queue.head.value).toBe(7)
   });
 });
