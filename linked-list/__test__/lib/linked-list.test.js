@@ -10,7 +10,7 @@ describe('linkedList', () => {
 
   describe('insert', () => {
     it('can insert at the head', () => {
-    var linkList = new LinkedList();
+      var linkList = new LinkedList();
       linkList.insert(4);
       expect(linkList.head.value).toBe(4);
     });
@@ -35,7 +35,7 @@ describe('linkedList', () => {
     });
   });
   describe('insertBefore', () => {
-      //  we now know insert is adding to the list before queried val. 
+    //  we now know insert is adding to the list before queried val. 
     it('inserts value before the queried value', () => {
       var linkList = new LinkedList();
       linkList.insert('400'); 
@@ -73,13 +73,13 @@ describe('linkedList', () => {
     });
 
     it('will return null if given a string', () => {
-    var linkList = new LinkedList();
-    linkList.insert(5);
-    linkList.insert(4);
-    linkList.insert(3);
-    linkList.insert(2);
-    linkList.insert(1);
-    expect(linkList.fromEnd('hello')).toBe(null);
+      var linkList = new LinkedList();
+      linkList.insert(5);
+      linkList.insert(4);
+      linkList.insert(3);
+      linkList.insert(2);
+      linkList.insert(1);
+      expect(linkList.fromEnd('hello')).toBe(null);
     });
     it('will return null if k > list length', () => {
       var linkList = new LinkedList();

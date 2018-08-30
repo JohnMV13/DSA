@@ -11,7 +11,7 @@ LinkedList.prototype.insert = function(value) {
   var node = new Node(value);
   node.next = this.head;
   this.head = node;
-}
+};
 
 LinkedList.prototype.includes = function(value) {
   if(this.head == null) {
@@ -26,7 +26,7 @@ LinkedList.prototype.includes = function(value) {
   } else if (current.next == null){
     return false;
   }
-}
+};
 
 LinkedList.prototype.append = function(val){
   var node = {
@@ -84,7 +84,7 @@ LinkedList.prototype.fromEnd = function(k) {
   let current = this.head;
   let count = 1;
   if(typeof(k) == 'string'){
-    console.log("this is being called");
+    console.log('this is being called');
     return null;
   }
   while (current.next !== null) {
@@ -100,8 +100,8 @@ LinkedList.prototype.fromEnd = function(k) {
   for(let i = 0; i < (count-1-k); i++) {
     current = current.next;
   }
-  return current
-}
+  return current;
+};
 
 LinkedList.prototype.merge = function(listOne, listTwo){
   function NewList(nodeVal, next) {

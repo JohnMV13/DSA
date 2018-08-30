@@ -19,5 +19,5 @@ const BinarySearch = (sorted, key) => {
     console.log({start, end});
   }
   return -1;
-} 
+}; 
 module.exports = BinarySearch;

@@ -16,25 +16,25 @@ Queue.prototype.enqueue = function(value) {
   node.previous = current;
   this.tail = node;
   console.log('hello');
-}
+};
 
 Queue.prototype.dequeue = function() {
   var current = this.head;
   this.head = this.head.next;
   return current;
-}
+};
 
 Queue.prototype.push = function(value){
   var node = new Node(value);
   node.next = this.head;
   this.head = node;
-}
+};
 
 Queue.prototype.pop = function() {
   let current = this.head;
   this.head = this.head.next;
   return current;
-}
+};
 
 function Node(value) {
   this.value = value;

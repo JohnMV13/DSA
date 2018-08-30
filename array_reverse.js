@@ -1,4 +1,4 @@
-revArr = (arr) => {
+var revArr = (arr) => {
   if(typeof(arr) === 'object'){
     var x = 0;
     var newArr = [];
@@ -9,4 +9,6 @@ revArr = (arr) => {
   }else {
     return 'Why would you do such a thing?';
   }
-}
+};
+
+module.exports = revArr;

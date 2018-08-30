@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const Stack = require('./stack');
 
@@ -16,7 +16,7 @@ function mBV(string) {
       if((str[i] === ')' && stack.head.value === '(') || (str[i] === ']' && stack.head.value === '[') || (str[i] === '}' && stack.head.value === '{')) {
         stack.pop();
       }
-       else { 
+      else { 
         return false;
       }
     }
