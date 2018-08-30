@@ -6,7 +6,7 @@ describe('Stacks', () => {
   it('can push a new value to the top of a linked list', () => {
     var stacks = new Stacks();
     stacks.push(3);
-    stacks.push(4)
+    stacks.push(4);
     expect(stacks.head.value).toBe(4);
   });
   it('can pop the top node of a list from the list', () => {
