@@ -8,6 +8,7 @@ describe('mBV', () => {
     expect(mBV('()')).toBe(true);
     expect(mBV('()[]{}')).toBe(true);
     expect(mBV('([{}])')).toBe(true);
+    expect(mBV('[hello]')).toBe(true);
   });
   it('can return false for incorrect inputs', () => {
     expect(mBV('(}')).toBe(false);
@@ -16,5 +17,6 @@ describe('mBV', () => {
   it('can return false if not a string', () => {
     expect(mBV(1)).toBe(false);
     expect(mBV([])).toBe(false);
+    expect(mBV(['hello'])).toBe(false);
   });
 });
