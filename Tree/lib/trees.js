@@ -3,61 +3,139 @@
 class Node {
   constructor(value) {
     this.value = value;
-    this.right = null;
     this.left = null;
-    this.parent = null;
+    this.right = null;
   }
 }
 
-class Tree {
-  constructor() {
+class Tree{
+  constructor(){
     this.root = null;
   }
-
-  insert(value) {
-    let node = new Node(value);
-
-    // Tree is empty, so value is our new root
-    if (this.root === null) {
-      this.root = node;
-      return;
+  insert(value){
+    let leaf;
+    if(!(value instanceof Node)){
+      leaf = new Node(value);
+    } else{
+      leaf = value;
+      value = value.value;
     }
-
+    if (!this.root){
+      this.root = leaf;
+      return this;
+    }
+    
     let current = this.root;
-    while(current.right !== null || current.left !== null) {
-      if(current.value > node) {
-        if(current.left === null) {
-          node.parent = current;
-          current.left = node;
-        } else {
-          current = current.left
+    while(current){
+      if (value < current.value){
+        if (current.left){
+          current = current.left;
+        } else{
+          current.left = leaf;
+          return this;
         }
-      } if(current.value < node) {
-        if(current.right === null) {
-          node.parent = current;
-          current.right = node;
-        } else {
+      }
+      if(value > current.value){
+        if(current.right){
           current = current.right;
+        } else{
+          current.right = leaf;
+          return this;
         }
-      } else if(current.value === node) {
-        return null;
+      }
+      else throw new Error('No repeat values');
+    } return this;
+  }
+  find(value){
+    if(!this.root){
+      return 'This tree is empty.';
+    }
+    let current = this.root;
+    while(current){
+      if(value === current.value){
+        return true;
+      } else{
+        if(value > current.value){
+          if(current.right){
+            current=current.right;
+          } else return `Value "${value}" not found.`;
+        }
+        if(value < current.value){
+          if(current.left){
+            current = current.left;
+          } else return `Value "${value}" not found.`;
+        }
+      }
+    } return `Value "${value}" not found.`;
+  }
+  remove(value){
+    if(!this.root){
+      return 'This tree is empty.';
+    }
+    let current = this.root;
+    let oldCurrent;
+    let direction;
+    while(current){
+      if(value === current.value){
+        if(oldCurrent){
+          if(direction === 'right'){
+            if(!current.right){
+              oldCurrent.right = null;
+            } else{
+              oldCurrent.right = current.right;
+            }
+            this.insert(current.left);
+            return;
+          }else{
+            if(!current.left){
+              oldCurrent.left = null;
+            }
+            else{
+              oldCurrent.left = current.left;
+            }
+            this.insert(current.right);
+            return;
+          }
+        } else{
+          this.root = current.left;
+          this.insert(current.right);
+          return;
+        }
+      } else{
+        if(value > current.value){
+          if(current.right){
+            oldCurrent = current;
+            direction = 'right';
+            current=current.right;
+          } else return `Value "${value}" not found.`;
+        }
+        if(value < current.value){
+          if(current.left){
+            oldCurrent = current;
+            direction = 'left';
+            current = current.left;
+          } else return `Value "${value}" not found.`;
+        }
       }
     }
   }
-
-  find(value) {
-    let current = this.root;
-    while(current.value !== null) {
-      if(current.value < value) {
-        current = current.right;
-      } if (current.value > value) {
-        current = current.left;
-      } if (current.value === value) {
-        return current;
-      }
-    } if (current.value !== value) {
-      return null;
+  deserialize(value){
+    for(let i = 0; i<value.length; i++){
+      this.insert(value[i]);
     }
+  }
+  serialize(){
+    let array = [];
+    const serializer = function(node){
+      if(!node){
+        return;
+      }
+      array.push(node.value);
+      serializer(node.left);
+      serializer(node.right);
+    };
+    serializer(this.root);
+    return array;
   }
 }
 
