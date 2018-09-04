@@ -57,4 +57,17 @@ describe('Tree', ()=>{
     tree.deserialize([1,2,7,8]);
     expect(tree.root.value).toBe(1);
   });
+  it('can tell if the tree is actually a tree', () => {
+    let tree = new Tree();
+    tree.insert(10);
+    tree.insert(15);
+    tree.insert(12);
+    tree.insert(6);
+    tree.insert(13);
+    expect(tree.root.value).toBe(10);
+    expect(tree.root.right.value).toBe(15);
+    expect(tree.root.left.value).toBe(6);
+    expect(tree.root.right.left.value).toBe(12);
+    expect(tree.root.right.left.right.value).toBe(13);
+  });
 });
