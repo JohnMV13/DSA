@@ -1,7 +1,6 @@
 'use strict';
-
-class Node {
-  constructor(value) {
+class Node{
+  constructor(value){
     this.value = value;
     this.left = null;
     this.right = null;
@@ -24,7 +23,6 @@ class Tree{
       this.root = leaf;
       return this;
     }
-    
     let current = this.root;
     while(current){
       if (value < current.value){
@@ -43,7 +41,7 @@ class Tree{
           return this;
         }
       }
-      else throw new Error('No repeat values');
+      else if( value === current.value) throw new Error('This value is already in the tree. No duplicate values.');
     } return this;
   }
   find(value){
