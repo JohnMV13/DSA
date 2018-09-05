@@ -15,7 +15,6 @@ Queue.prototype.enqueue = function(value) {
   current.next = node;
   node.previous = current;
   this.tail = node;
-  console.log('hello');
 };
 
 Queue.prototype.dequeue = function() {
