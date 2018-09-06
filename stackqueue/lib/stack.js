@@ -2,7 +2,6 @@
 
 function Stack() {
   this.head = null;
-  console.log(this.head);
 }
 
 Stack.prototype.push = function(value){

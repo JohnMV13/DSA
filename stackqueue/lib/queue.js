@@ -8,14 +8,13 @@ function Queue(value) {
 Queue.prototype.enqueue = function(value) {
   var node = new Node(value);
   if(this.tail === null) {
-    this.tail = node;
     this.head = node;
+    this.tail = node;
   }
   var current = this.tail;
   current.next = node;
   node.previous = current;
   this.tail = node;
-  console.log('hello');
 };
 
 Queue.prototype.dequeue = function() {

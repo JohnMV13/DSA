@@ -1,10 +1,8 @@
-
 'use strict';
 
 
 function LinkedList() {
   this.head = null;
-  console.log(this.head);
 }
 
 LinkedList.prototype.insert = function(value) {
@@ -45,16 +43,13 @@ LinkedList.prototype.append = function(val){
 };
 
 LinkedList.prototype.insertBefore = function(value, newVal){
-  console.log(this.head);
   var node = {
     value: newVal,
     next: null,
   };
   let current = this.head;
-  console.log(current.next);
   while( current.next !== null && current.next.value !== value){ 
     current = current.next;
-    console.log('next', current);
   }
   let storedNode;
   storedNode = current.next;
@@ -63,16 +58,13 @@ LinkedList.prototype.insertBefore = function(value, newVal){
 };
 
 LinkedList.prototype.insertAfter = function(value, newVal){
-  console.log(this.head);
   var node = {
     value: newVal,
     next: null,
   };
   let current = this.head;
-  console.log(current.next);
   while( current.next !== null && current.value !== value){ 
     current = current.next;
-    console.log('next', current);
   }
   let storedNode;
   storedNode = current.next;
@@ -84,14 +76,11 @@ LinkedList.prototype.fromEnd = function(k) {
   let current = this.head;
   let count = 1;
   if(typeof(k) == 'string'){
-    console.log('this is being called');
     return null;
   }
   while (current.next !== null) {
     current = current.next;
-    console.log(current);
     count++;
-    console.log('+1', count);
   }
   current = this.head;
   if(k > count) {
