@@ -17,8 +17,9 @@ function bFT(tree) {
   queue.enqueue(tree.root);
   console.log(queue);
 
+  let count = 0;
   let currentNode = queue.dequeue();
-  while(currentNode) {
+  while(currentNode && count++ < 10000) {
   // equivalent for loop:
   // for (let currentNode = queue.dequeue(); currentNode; currentNode = queue.dequeue())
 
