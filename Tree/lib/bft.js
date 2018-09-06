@@ -13,9 +13,7 @@ function bFT(tree) {
   }
   let ll = new LL();
   let queue = new Queue();
-  // let head = tree.root;
   queue.enqueue(tree.root);
-  console.log(queue);
 
   let count = 0;
   let currentNode = queue.dequeue();
@@ -25,13 +23,11 @@ function bFT(tree) {
 
     if(currentNode.left !== null) {
       queue.enqueue(currentNode.left);
-      console.log(queue);
     }
     if(currentNode.right !== null) {
       queue.enqueue(currentNode.right);
     }
-    ll.insert(currentNode.value);
-    console.log(ll);
+    ll.append(currentNode.value);
 
     currentNode = queue.dequeue();
   }

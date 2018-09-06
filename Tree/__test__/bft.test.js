@@ -31,7 +31,19 @@ describe('BFT', () => {
     var ll = bFT(tree);
 
     // Assert
-    expect(ll.head).toBe(5);
+    expect(ll.head.value).toBe(5);
+    expect(ll.head.next.value).toBe(4);
+    expect(ll.head.next.next.value).toBe(10);
+    expect(ll.head.next.next.next.value).toBe(2);
+    expect(ll.head.next.next.next.next.value).toBe(6);
+    expect(ll.head.next.next.next.next.next.value).toBe(12);
+    expect(ll.head.next.next.next.next.next.next.value).toBe(3);
+    expect(ll.head.next.next.next.next.next.next.next).toBe(null);
+
+    // We would rather test like this:
+    // expect(ll.toString()).toBe('5,4,10,2,6,12,3');
+    // Or like this:
+    // expect(ll.toArray()).toEqual([5,4,10,2,6,12,3]);
   });
 
   it('can return null for no tree input', () => {
