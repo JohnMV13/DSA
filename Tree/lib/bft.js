@@ -10,17 +10,21 @@ function bFT(tree) {
   }
   let ll = new LL();
   let queue = new Queue();
-  console.log('hello');
+  // let head = tree.root;
   queue.enqueue(tree.root);
+  console.log(queue);
   while(queue.head !== null) {
-    if(head.left !== null) {
-      queue.enqueue(head.left);
+    if(queue.head.value.left !== null) {
+      queue.enqueue(queue.head.value.left);
+      console.log(queue);
     }
-    if(head.right !== null) {
-      queue.enqueue(head.right);
+    if(queue.head.value.right !== null) {
+      queue.enqueue(queue.head.value.right);
     }
-    ll.insert(queue.dequeue());
+    ll.insert(queue.dequeue().value);
+    console.log(ll);
   }
   return ll;
+
 }
 module.exports = bFT

@@ -1,3 +1,4 @@
+
 'use strict';
 
 const bFT = require('../lib/bft');
@@ -16,7 +17,6 @@ describe('BFT', () => {
   });
   it('can move a tree\'s nodes from left to right starting from the root into a linked list', () => {
     tree = new Tree();
-    bft = bFT();
     queue = new Queue();
     ll = new LL();
     tree.insert(5);
@@ -26,7 +26,7 @@ describe('BFT', () => {
     tree.insert(3);
     tree.insert(12);
     tree.insert(6);
-    bft(tree);
-  expect(ll.head.value).toBe(5);
+    bFT(tree);
+  expect(ll.head.node.value).toBe(5);
   })
 });
