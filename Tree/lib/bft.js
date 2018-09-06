@@ -8,6 +8,9 @@ function bFT(tree) {
   if(!tree) {
     return null;
   }
+  if(!tree.root) {
+    return null;
+  }
   let ll = new LL();
   let queue = new Queue();
   // let head = tree.root;
