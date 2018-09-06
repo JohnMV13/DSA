@@ -7,10 +7,14 @@ function Queue(value) {
 
 Queue.prototype.enqueue = function(value) {
   var node = new Node(value);
+
+  // First element in queue
   if(this.tail === null) {
     this.head = node;
     this.tail = node;
+    return;
   }
+
   var current = this.tail;
   current.next = node;
   node.previous = current;
@@ -53,6 +57,7 @@ Queue.prototype.pop = function() {
 function Node(value) {
   this.value = value;
   this.next = null;
+  this.prev = null;
 }
 
 module.exports = Queue;

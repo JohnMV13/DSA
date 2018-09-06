@@ -10,6 +10,30 @@ describe('Queue', () => {
     queue.enqueue(7);
     expect(queue.tail.value).toBe(7);
   });
+
+  it('can enqueue and dequeue a single elemtn', () => {
+    var queue = new Queue();
+
+    expect(queue.head).toBe(null);
+    expect(queue.tail).toBe(null);
+    expect(queue.peek()).toBe(null);
+    expect(queue.dequeue()).toBe(null);
+
+    queue.enqueue(1);
+    expect(queue.head).not.toBe(null);
+    expect(queue.head.value).toBe(1);
+    expect(queue.tail).toBe(queue.head);
+    expect(queue.head.next).toBe(null);
+    expect(queue.head.prev).toBe(null);
+    expect(queue.peek()).toBe(1);
+    expect(queue.dequeue()).toBe(1);
+
+    expect(queue.head).toBe(null);
+    expect(queue.tail).toBe(null);
+    expect(queue.peek()).toBe(null);
+    expect(queue.dequeue()).toBe(null);
+  });
+
   it('can remove the first element in a list', () => {
     var queue = new Queue();
     queue.enqueue(9);
