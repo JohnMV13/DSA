@@ -15,8 +15,20 @@ describe('Queue', () => {
     queue.enqueue(9);
     queue.enqueue(8);
     queue.enqueue(7);
-    queue.dequeue();
+
+    expect(queue.dequeue()).toBe(9);
     expect(queue.head.value).toBe(8);
+    expect(queue.head.prev).toBe(null); // prev used to point to 9
+
+    expect(queue.dequeue()).toBe(8);
+    expect(queue.head.value).toBe(7);
+    expect(queue.head.prev).toBe(null); // prev used to point to 8
+
+    expect(queue.dequeue()).toBe(7);
+    expect(queue.head).toBe(null);
+    expect(queue.tail).toBe(null);
+
+    expect(queue.dequeue()).toBe(null);
   });
   it('can add a new value to the beginning of the list', () => {
     var queue = new Queue();

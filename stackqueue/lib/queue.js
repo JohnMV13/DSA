@@ -19,8 +19,17 @@ Queue.prototype.enqueue = function(value) {
 
 Queue.prototype.dequeue = function() {
   var current = this.head;
+  if (!current) {
+    return null;
+  }
+
   this.head = this.head.next;
-  return current;
+  if (this.head) {
+    this.head.prev = null;
+  } else {
+    this.tail = null;
+  }
+  return current.value;
 };
 
 Queue.prototype.push = function(value){
