@@ -27,6 +27,10 @@ describe('BFT', () => {
     tree.insert(12);
     tree.insert(6);
     bFT(tree);
-  expect(ll.head.node.value).toBe(5);
+  expect(ll.head).toBe(5);
+  });
+  it('can return null for no tree input', () => {
+    bFT('hello');
+    expect(ll.head).toBe(null);
   })
 });
