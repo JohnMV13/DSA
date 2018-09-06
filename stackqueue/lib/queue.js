@@ -17,6 +17,12 @@ Queue.prototype.enqueue = function(value) {
   this.tail = node;
 };
 
+Queue.prototype.peek = function() {
+  return this.head && this.head.value;
+  // return this.head ? this.head.value : null;
+  // if (this.head) { return this.head.value; } else { return null; }
+};
+
 Queue.prototype.dequeue = function() {
   var current = this.head;
   if (!current) {
