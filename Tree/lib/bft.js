@@ -16,16 +16,23 @@ function bFT(tree) {
   // let head = tree.root;
   queue.enqueue(tree.root);
   console.log(queue);
-  while(queue.head !== null) {
-    if(queue.head.value.left !== null) {
-      queue.enqueue(queue.head.value.left);
+
+  let currentNode = queue.dequeue();
+  while(currentNode) {
+  // equivalent for loop:
+  // for (let currentNode = queue.dequeue(); currentNode; currentNode = queue.dequeue())
+
+    if(currentNode.left !== null) {
+      queue.enqueue(currentNode.left);
       console.log(queue);
     }
-    if(queue.head.value.right !== null) {
-      queue.enqueue(queue.head.value.right);
+    if(currentNode.right !== null) {
+      queue.enqueue(currentNode.right);
     }
-    ll.insert(queue.dequeue().value);
+    ll.insert(currentNode.value);
     console.log(ll);
+
+    currentNode = queue.dequeue();
   }
   return ll;
 
