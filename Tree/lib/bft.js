@@ -1,6 +1,5 @@
 'use strict';
 
-const Tree = require('./trees');
 const Queue = require('../../stackqueue/lib/queue');
 const LL = require('../../linked-list/lib/linked-list');
 
@@ -34,4 +33,4 @@ function bFT(tree) {
   return ll;
 
 }
-module.exports = bFT
+module.exports = bFT;

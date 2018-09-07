@@ -20,7 +20,6 @@ describe('maxValue', () => {
     expect(maxValue(tree)).toBe(null);
   });
   it('returns null if it is given anything except a tree', () => {
-    let tree = new Tree();
     expect(maxValue('hello')).toBe(null);
-  })
+  });
 });
