@@ -1,6 +1,5 @@
 'use strict';
 
-const Tree = require('./trees');
 const Queue = require('../../stackqueue/lib/queue');
 const LL = require('../../linked-list/lib/linked-list');
 
@@ -13,21 +12,25 @@ function bFT(tree) {
   }
   let ll = new LL();
   let queue = new Queue();
-  // let head = tree.root;
   queue.enqueue(tree.root);
-  console.log(queue);
-  while(queue.head !== null) {
-    if(queue.head.value.left !== null) {
-      queue.enqueue(queue.head.value.left);
-      console.log(queue);
+
+  let count = 0;
+  let currentNode = queue.dequeue();
+  while(currentNode && count++ < 10000) {
+  // equivalent for loop:
+  // for (let currentNode = queue.dequeue(); currentNode; currentNode = queue.dequeue())
+
+    if(currentNode.left !== null) {
+      queue.enqueue(currentNode.left);
     }
-    if(queue.head.value.right !== null) {
-      queue.enqueue(queue.head.value.right);
+    if(currentNode.right !== null) {
+      queue.enqueue(currentNode.right);
     }
-    ll.insert(queue.dequeue().value);
-    console.log(ll);
+    ll.append(currentNode.value);
+
+    currentNode = queue.dequeue();
   }
   return ll;
 
 }
-module.exports = bFT
+module.exports = bFT;

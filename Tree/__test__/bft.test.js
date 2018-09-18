@@ -1,24 +1,23 @@
-
 'use strict';
 
 const bFT = require('../lib/bft');
 const Tree = require('../lib/trees');
-const Queue = require('../../stackqueue/lib/queue');
-const LL = require('../../linked-list/lib/linked-list');
 
 describe('BFT', () => {
-  let tree;
-  let queue;
-  let bft;
-  let ll;
   it('returns null for an empty tree', () => {
-    tree = new Tree();
-    expect(tree.root).toBe(null);
+    // Arrange
+    let tree = new Tree();
+
+    // Act
+    let ll = bFT(tree);
+
+    // Assert
+    expect(ll).toBe(null);
   });
+
   it('can move a tree\'s nodes from left to right starting from the root into a linked list', () => {
-    tree = new Tree();
-    queue = new Queue();
-    ll = new LL();
+    // Arrange
+    let tree = new Tree();
     tree.insert(5);
     tree.insert(10);
     tree.insert(4);
@@ -26,11 +25,31 @@ describe('BFT', () => {
     tree.insert(3);
     tree.insert(12);
     tree.insert(6);
-    bFT(tree);
-  expect(ll.head).toBe(5);
+
+    // Act
+    var ll = bFT(tree);
+
+    // Assert
+    expect(ll.head.value).toBe(5);
+    expect(ll.head.next.value).toBe(4);
+    expect(ll.head.next.next.value).toBe(10);
+    expect(ll.head.next.next.next.value).toBe(2);
+    expect(ll.head.next.next.next.next.value).toBe(6);
+    expect(ll.head.next.next.next.next.next.value).toBe(12);
+    expect(ll.head.next.next.next.next.next.next.value).toBe(3);
+    expect(ll.head.next.next.next.next.next.next.next).toBe(null);
+
+    // We would rather test like this:
+    // expect(ll.toString()).toBe('5,4,10,2,6,12,3');
+    // Or like this:
+    // expect(ll.toArray()).toEqual([5,4,10,2,6,12,3]);
   });
+
   it('can return null for no tree input', () => {
-    bFT('hello');
-    expect(ll.head).toBe(null);
-  })
+    // Act
+    var ll = bFT('hello');
+
+    // Assert
+    expect(ll).toBe(null);
+  });
 });
