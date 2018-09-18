@@ -1,7 +1,5 @@
 'use strict';
 
-const Tree = require('./trees');
-
 function maxValue(tree) {
   if(!tree.root) {
     return null;
