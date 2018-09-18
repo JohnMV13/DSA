@@ -1,6 +1,6 @@
 'use strict';
 
-const Queue = require('../stackqueue/lib/queue');
+const Queue = require('../../stackqueue/lib/queue');
 
 class Graph{
   constructor(){
@@ -52,7 +52,7 @@ class Graph{
     let start = this.vertices[0];
     let queue = new Queue();
     queue.enqueue(start);
-    console.log(queue);
+    // console.log(queue);
     while(queue.head){
       let included;
       if(arr.length > 0){
