@@ -1,6 +1,7 @@
 'use strict';
 
 const Graph = require('../lib/breadth-first');
+const bft = require('../../Tree/lib/bft');
 
 describe('Graph', ()=>{
   
@@ -23,7 +24,6 @@ describe('Graph', ()=>{
   it('can add edges', ()=>{
     let graph = new Graph();
     graph.addVertex('n');
-    console.log(graph.vertices);
     expect(graph.vertices[0]).toBe('n');
     graph.addVertex('m');
     expect(graph.vertices[1]).toBe('m');
@@ -42,7 +42,6 @@ describe('Graph', ()=>{
     expect(graph.edges['b']).toContain('m');
     graph.connect('b', 'q');
     expect(graph.edges['q']).toBeDefined();
-    console.log(graph.vertices);
     expect(function(){graph.connect('m', 'm');}).toThrow(Error);
 
   });
@@ -77,8 +76,11 @@ describe('Graph', ()=>{
     graph.connect('e', 'f');
     graph.connect('g', 'd');
     graph.connect('g', 'a');
-    let array = graph.bft();
-    expect(array.length).toBe(9);
+    // let array = graph.bft();
+    console.log(graph);
+    console.log(graph.bft().length);
+    expect(graph.bft().length).toBe(9);
     expect(array).toContain('a', 'b', 'c', 'd', 'e', 'f', 'g', 'n', 'm');
+    console.log(array);
   });
 });
