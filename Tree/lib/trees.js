@@ -1,5 +1,5 @@
 'use strict';
-class Node{
+class TreeNode{
   constructor(value){
     this.value = value;
     this.left = null;
@@ -13,8 +13,8 @@ class Tree{
   }
   insert(value){
     let leaf;
-    if(!(value instanceof Node)){
-      leaf = new Node(value);
+    if(!(value instanceof TreeNode)){
+      leaf = new TreeNode(value);
     } else{
       leaf = value;
       value = value.value;
