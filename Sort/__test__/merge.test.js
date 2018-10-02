@@ -2,7 +2,7 @@ const mergeSort = require('../src/merge');
 
 describe('mergeSort', ()=>{
   it('throws an error for invalid inputs', ()=>{
-    let arr = [1,'252',436,4364,5];
+    let arr = '1,252,436,4364,5';
     expect(function(){mergeSort(4);}).toThrow(Error);
     expect(function(){mergeSort(arr);}).toThrow(Error);
   });

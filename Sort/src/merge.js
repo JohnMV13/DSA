@@ -29,9 +29,6 @@ function merge(left, right){
   let leftI = 0;
   let rightI = 0;
   while(leftI < left.length && rightI < right.length){
-    if(typeof left[leftI] !== 'number'|| typeof right[rightI] !== 'number'){
-      throw new Error('Cannot compare non-numerical values');
-    }
     if(left[leftI] < right[rightI]){
       res.push(left[leftI]);
       leftI++;
