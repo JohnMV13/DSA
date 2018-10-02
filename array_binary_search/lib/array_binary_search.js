@@ -16,8 +16,7 @@ const BinarySearch = (sorted, key) => {
     } else if (key < sorted[middle]) {
       end = middle - 1;
     } 
-    console.log({start, end});
   }
   return -1;
-} 
+}; 
 module.exports = BinarySearch;
