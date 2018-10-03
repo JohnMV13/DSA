@@ -1,6 +1,5 @@
 'use strict';
 
-
 function LinkedList() {
   this.head = null;
 }
